@@ -88,10 +88,35 @@
                 <Label Text="View address on"/>
                 <Button Text="www.etherscan.com" />
             </FlexLayout>
-            
         </Grid>
-        
-        
+
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Text="Select" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <ScrollView Grid.Column="1" Orientation="Horizontal">
+                <FlexLayout x:Name="WalletArea"  Wrap="NoWrap" CompressedLayout.IsHeadless="False" Position="Relative" HorizontalOptions="Center" AlignItems="Center">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <!-- the centering is needed to prevent image resize -->
+                            <!--
+                            <ImageButton 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                Clicked="ImageButton_Clicked" 
+                                ClassId="{Binding id}" 
+                                Source="{Binding cryptoIconPath}" 
+                                Style="{StaticResource WalletIcon}"
+                                />
+                            -->
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </ScrollView>
+        </Grid>
     </Grid>
 
 </ContentPage>
