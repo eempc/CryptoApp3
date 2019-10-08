@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAddress.Android", "CryptoAddress\CryptoAddress.Android\CryptoAddress.Android.csproj", "{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAddress", "CryptoAddress\CryptoAddress\CryptoAddress.csproj", "{2A06A225-3B6D-4975-B9C9-BD2F177E790B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEBFF700-B35D-4FFE-B0D3-ABC8AA38BC7C}
+	EndGlobalSection
+EndGlobal
