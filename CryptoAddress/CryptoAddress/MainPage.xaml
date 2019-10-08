@@ -9,15 +9,89 @@
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              >
 
-    <StackLayout>
-        <Label Text="test"/>
-        <Frame x:Name="QRFrame" Padding="3" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+    <Grid BackgroundColor="Gray">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+		</Grid.RowDefinitions>
+        
+        <!-- Header section-->
+        <Label Grid.Row="0" Text="Header" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        
+        <!-- Title of address -->
+        <Label Grid.Row="1" Text="Title" BackgroundColor="AliceBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+    
+        <!-- The QR Code -->
+        <Frame Grid.Row="2" x:Name="QRFrame" Padding="3" BackgroundColor="#F8DA1C" HorizontalOptions="Center" VerticalOptions="Center">
             <zxing:ZXingBarcodeImageView x:Name="BarcodeImageView" BarcodeFormat="QR_CODE" IsVisible="True" BarcodeValue="0xd26114cd6EE289AccF82350c8d8487fedB8A0C07">
                 <zxing:ZXingBarcodeImageView.BarcodeOptions>
                     <zxcm:EncodingOptions Width="600" Height="600" />
                 </zxing:ZXingBarcodeImageView.BarcodeOptions>
             </zxing:ZXingBarcodeImageView>
         </Frame>
-    </StackLayout>
+
+        <!-- The raw address e.g. 0x2328423hejfndsf-->
+        <Label Grid.Row="3" Text="Address" BackgroundColor="Beige" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+        <!-- Enter amount section -->
+        <Label Grid.Row="4" Text="Amount" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+        <Grid Grid.Row="5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Text="$" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Keyboard="Numeric" Placeholder="1000.00" HorizontalTextAlignment="Center"/>
+            <Picker Grid.Column="2" Title="Select Fiat" HorizontalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}"/>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+
+        <!-- Calculated amount of crypto at last known exchange rate -->
+        <Label Grid.Row="6" Text="Payment of" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+        <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
+            <Label Text="E" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,6,0"/>
+            <Label Text="0.55555" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Text="ETH" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="6,0,0,0"/>
+        </FlexLayout>
+        
+        
+        <!-- Information section -->
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Exchange rate -->
+            <FlexLayout Grid.Column="0" BackgroundColor="LightYellow" Direction="Column" JustifyContent="Center" AlignItems="Center">
+                <Label Text="Rate"/>
+                <Label Text="$500.00"/>
+                <Label Text="2019-12-12"/>
+            </FlexLayout>
+
+            <FlexLayout Grid.Column="1" Direction="Column" JustifyContent="Center" AlignItems="Center">
+                <Label Text="View address on"/>
+                <Button Text="www.etherscan.com" />
+            </FlexLayout>
+            
+        </Grid>
+        
+        
+    </Grid>
 
 </ContentPage>
