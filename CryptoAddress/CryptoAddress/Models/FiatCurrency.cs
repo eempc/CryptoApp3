@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CryptoAddress.Models {
     class FiatCurrency : Currency {
-        public FiatCurrency(string symbolCode, string fullName, Dictionary<int, string> unitNames, char symbolCharacter) : base(symbolCode, fullName, unitNames, symbolCharacter) {
+        public char SymbolCharacterMinor { get; set; }
+        public FiatCurrency(string symbolCode, string fullName, Dictionary<int, string> unitNames, char symbolCharacterMajor, char symbolCharacterMinor) : 
+            base(symbolCode, fullName, unitNames, symbolCharacterMajor) {
+            SymbolCharacterMinor = symbolCharacterMinor;
         }
 
         public FiatCurrency() {
