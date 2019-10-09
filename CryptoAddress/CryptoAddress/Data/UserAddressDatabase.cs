@@ -1,9 +1,8 @@
-﻿using System;
+﻿using CryptoAddress.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using CryptoAddress.Models;
-using SQLite;
 
 namespace CryptoAddress.Data {
     class UserAddressDatabase {
@@ -40,7 +39,7 @@ namespace CryptoAddress.Data {
             await db.CloseAsync();
         }
 
-        // Read all
+        // Read all into a list
         public static List<UserAddress> ReadAll() {
             List<UserAddress> list = new List<UserAddress>();
             SQLiteConnection db = new SQLiteConnection(databasePath);
