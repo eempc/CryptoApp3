@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using CryptoAddress.Data;
+using CryptoAddress.Models;
 
 namespace CryptoAddress {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -14,5 +16,11 @@ namespace CryptoAddress {
         public MainPage() {
             InitializeComponent();
         }
+
+
+    }
+
+    public partial class MainPage : ContentPage {
+        
     }
 }

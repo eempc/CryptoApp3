@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace CryptoAddress.Models {
     public abstract class Currency : ICurrency {
-        public string SymbolCode { get; set; } // E.g. ETH
-        public string FullName { get; set; } // E.g. Ethereum
-        public Dictionary<int, string> UnitNames { get; set; } // E.g. Key/Value { 18, "wei" }
-        public char SymbolCharacterMajor { get; set; } // E.g. E
+        public string SymbolCode { get; set; } // E.g. "ETH"
+        public string FullName { get; set; } // E.g. "Ethereum"
+        public Dictionary<int, string> UnitNames { get; set; } // E.g. Key/Value pair { 18, "wei" } where 18 is the decimal place and wei is the name of said unit
+        public char SymbolCharacterMajor { get; set; } // E.g. 'E'
 
         public Currency(string symbolCode, string fullName, Dictionary<int, string> unitNames, char symbolCharacterMajor) {
             SymbolCode = symbolCode;
