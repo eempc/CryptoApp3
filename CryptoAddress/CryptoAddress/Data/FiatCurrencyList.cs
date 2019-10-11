@@ -55,5 +55,10 @@ namespace CryptoAddress.Data {
             }
             return list;
         }
+
+        public static string GetCharacterSymbol(string symbol) {
+            if (currencyList.Count <= 0) InitiateCurrencies();
+            return currencyList[symbol].SymbolCharacterMajor.ToString();
+        }
     }
 }

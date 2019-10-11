@@ -48,6 +48,11 @@ namespace CryptoAddress {
             string selectedItem = PickerFiatCurrencySelect.SelectedItem.ToString();
             Preferences.Set("user_fiat_currency", selectedItem);
             currentUserFiat = selectedItem;
+            SetFiatCharacterSymbol();
+        }
+
+        private void SetFiatCharacterSymbol() {
+            LabelFiatCurrencyCharacter.Text = FiatCurrencyList.GetCharacterSymbol(currentUserFiat);
         }
     }
 
@@ -62,6 +67,7 @@ namespace CryptoAddress {
             if (!string.IsNullOrEmpty(currentUserFiat)) {
                 int startIndex = PickerFiatCurrencySelect.ItemsSource.IndexOf(currentUserFiat);
                 PickerFiatCurrencySelect.SelectedIndex = startIndex;
+                SetFiatCharacterSymbol();
             }
         }
 
