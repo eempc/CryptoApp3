@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CryptoAddress.Data {
     class FiatCurrencyList {
-        public static Dictionary<string, ICurrency> currencyList = new Dictionary<string, ICurrency>();
+        public static Dictionary<string, FiatCurrency> currencyList = new Dictionary<string, FiatCurrency>();
 
         public static void InitiateCurrencies() {
             currencyList.Add("USD",
@@ -41,7 +41,7 @@ namespace CryptoAddress.Data {
         public static List<string> GetFullNamesList() {
             if (currencyList.Count <= 0) InitiateCurrencies();
             List<string> list = new List<string>();
-            foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
+            foreach (KeyValuePair<string, FiatCurrency> entry in currencyList) {
                 list.Add(entry.Value.FullName);
             }
             return list;
@@ -50,7 +50,7 @@ namespace CryptoAddress.Data {
         public static List<string> GetSymbolsList() {
             if (currencyList.Count <= 0) InitiateCurrencies();
             List<string> list = new List<string>();
-            foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
+            foreach (KeyValuePair<string, FiatCurrency> entry in currencyList) {
                 list.Add(entry.Key);
             }
             return list;
