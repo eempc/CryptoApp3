@@ -559,3 +559,4 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Linq.Expressions.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Reflection.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Reflection.Extensions.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\btc.png

@@ -5,6 +5,6 @@
         string Name { get; set; }
         string Address { get; set; }
         string CryptoSymbol { get; set; }
-        string GetCryptoImageFileName(string fileType);
+        string ImageFileUrl { get; set; }
     }
 }

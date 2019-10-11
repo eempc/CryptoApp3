@@ -24,8 +24,10 @@
 		</Grid.RowDefinitions>
         
         <!-- Header section-->
-        <Label Grid.Row="0" x:Name="LabelHeader" Text="Header" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         
+        <Label Grid.Row="0" x:Name="LabelHeader" Text="Header" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Image Grid.Row="0" Source="btc.png" HorizontalOptions="Start"/>
+        <Image Grid.Row="0" x:Name="TestImage" HorizontalOptions="End"/>
         <!-- Title of address -->
         <Label Grid.Row="1" x:Name="LabelTitle" Text="Title" BackgroundColor="AliceBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
     
@@ -102,20 +104,20 @@
             <Label Grid.Column="0" Text="Select" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             
             <ScrollView Grid.Column="1" Orientation="Horizontal">
-                <FlexLayout Wrap="NoWrap" CompressedLayout.IsHeadless="False" Position="Relative" HorizontalOptions="Center" AlignItems="Center">
+                <FlexLayout x:Name="WalletArea" Wrap="NoWrap" CompressedLayout.IsHeadless="False" Position="Relative" HorizontalOptions="Center" AlignItems="Center">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <!-- the centering is needed to prevent image resize -->
-                            <!--
                             <ImageButton 
                                 HorizontalOptions="Center" 
                                 VerticalOptions="Center" 
-                                Clicked="ImageButton_Clicked" 
-                                ClassId="{Binding id}" 
-                                Source="{Binding cryptoIconPath}" 
-                                Style="{StaticResource WalletIcon}"
+                                
+                                ClassId="{Binding Id}" 
+                                Source="{Binding ImageFileUrl}" 
+                                
                                 />
-                            -->
+
+
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>

@@ -37,7 +37,6 @@ namespace CryptoAddress.Data {
                     '$', '¢'
                     ));
         }
-
         public static List<string> GetFullNamesList() {
             if (currencyList.Count <= 0) InitiateCurrencies();
             List<string> list = new List<string>();

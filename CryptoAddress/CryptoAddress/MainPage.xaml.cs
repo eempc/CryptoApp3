@@ -18,7 +18,6 @@ namespace CryptoAddress {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
         UserAddress currentUserAddress;
         FiatCurrency currentFiat;
-        //string currentUserFiat;
        
         // I will also need to instantiate a PriceFeed to retrieve exchange rates
 
@@ -30,7 +29,8 @@ namespace CryptoAddress {
             // The following are sequestered away in a partial class 
             // that is all about the initial loadup
             SetFiatPicker();
-            SetUserAddress();                       
+            SetUserAddress();
+            SetWalletArea();            
         }
 
         // Populate the header, title, address and barcode of the XAML
@@ -50,7 +50,7 @@ namespace CryptoAddress {
             DisplayFiatCharacterSymbol();
         }
 
-        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = currentFiat.SymbolCharacterMinor.ToString();       
+        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = currentFiat.SymbolCharacterMajor.ToString();       
     }
 
     // Loading startup methods go in here
@@ -71,14 +71,15 @@ namespace CryptoAddress {
 
         //User Address init
         private void SetUserAddress() {
-            int lastId = Preferences.Get("last_used_id", 1);
+            int lastId = Preferences.Get("last_used_id", -1);
             currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
             DisplayAddressDetails();
         }
 
-        // Init wallet area
+        // Init wallet area       
         private void SetWalletArea() {
-
+            List<UserAddress> addresses = UserAddressDatabase.ReadAll();
+            BindableLayout.SetItemsSource(WalletArea, addresses);
         }
     }
 }
