@@ -44,6 +44,8 @@ namespace CryptoAddress.Data {
         }
 
         public static List<string> GetFullNamesList() {
+            if (currencyList.Count <= 0) InitiateCurrencies();
+
             List<string> list = new List<string>();
             foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
                 list.Add(entry.Value.FullName);
@@ -52,6 +54,8 @@ namespace CryptoAddress.Data {
         }
 
         public static List<string> GetSymbolsList() {
+            if (currencyList.Count <= 0) InitiateCurrencies();
+
             List<string> list = new List<string>();
             foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
                 list.Add(entry.Key);

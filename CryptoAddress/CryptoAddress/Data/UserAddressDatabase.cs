@@ -52,6 +52,23 @@ namespace CryptoAddress.Data {
             return list;
         }
 
+        // Get a single entry
+        public static UserAddress GetUserAddressById(int number) {
+            // Normal retrieval method
+            SQLiteConnection db = new SQLiteConnection(databasePath);
+            UserAddress singleAddress = db.Table<UserAddress>().Where(address => address.Id == number).FirstOrDefault();
+            db.Close();
+
+            // This is not a good check
+            if (singleAddress.Name == null) {
+                singleAddress.Name = "not found";
+                singleAddress.CryptoSymbol = "not found";
+                singleAddress.Address = "not found";
+            }
+            
+            return singleAddress;
+        }
+
         // Delete
         public static async void Delete(int id) {
             SQLiteAsyncConnection db = new SQLiteAsyncConnection(databasePath);
