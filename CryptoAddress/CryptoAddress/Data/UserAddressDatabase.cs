@@ -7,24 +7,25 @@ using System.IO;
 namespace CryptoAddress.Data {
     class UserAddressDatabase {
         // Get the full path of where the database file will be kept. This will work on both Windows emulator and on the phone
-        private static string fileName = "UserAddresses000.db";
+        private static string fileName = "UserAddresses001.db";
         private static string personalFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         public static string databasePath = Path.Combine(personalFolder, fileName);
 
         // Create the database file if it does not exist and seed it with an address
-        public static async void CreateDatabase() {
+        public static void CreateDatabase() {
             if (!File.Exists(databasePath)) {
-                SQLiteAsyncConnection db = new SQLiteAsyncConnection(databasePath);
-                await db.CreateTableAsync<UserAddress>();
+                SQLiteConnection db = new SQLiteConnection(databasePath);
+                db.CreateTable<UserAddress>();
 
                 UserAddress seedingAddress = new UserAddress() {
+                    Id = 1,
                     Name = "My first Bitcoin wallet",
                     Address = "00112233445566778899aabbccddeeff",
                     CryptoSymbol = "BTC"
                 };
 
-                await db.InsertAsync(seedingAddress);
-                await db.CloseAsync();
+                db.Insert(seedingAddress);
+                db.Close();
             }
         }
 
@@ -57,15 +58,7 @@ namespace CryptoAddress.Data {
             // Normal retrieval method
             SQLiteConnection db = new SQLiteConnection(databasePath);
             UserAddress singleAddress = db.Table<UserAddress>().Where(address => address.Id == number).FirstOrDefault();
-            db.Close();
-
-            // This is not a good check
-            if (singleAddress.Name == null) {
-                singleAddress.Name = "not found";
-                singleAddress.CryptoSymbol = "not found";
-                singleAddress.Address = "not found";
-            }
-            
+            db.Close();            
             return singleAddress;
         }
 

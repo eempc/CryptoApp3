@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using CryptoAddress.Data;
 
 namespace CryptoAddress.Models {
     [Table("UserAddress")]
@@ -15,6 +16,10 @@ namespace CryptoAddress.Models {
         public string GetCryptoImageFileName(string fileType = ".png") {
             // Image file check could go in here before return
             return CryptoSymbol + fileType;
+        }
+
+        public string GetCryptoFullName() {
+            return CryptocurrencyList.GetSingleFullName(CryptoSymbol);
         }
     }
 }

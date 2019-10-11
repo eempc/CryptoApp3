@@ -53,7 +53,7 @@
 
             <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="$" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" Keyboard="Numeric" Placeholder="1000.00" HorizontalTextAlignment="Center"/>
-            <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="Center">
+            <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="Center" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}"/>
                 </Picker.ItemsSource>

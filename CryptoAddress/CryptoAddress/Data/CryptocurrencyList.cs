@@ -62,5 +62,10 @@ namespace CryptoAddress.Data {
             }
             return list;
         }
+
+        public static string GetSingleFullName(string cryptoSymbol) {
+            if (currencyList.Count <= 0) InitiateCurrencies();
+            return currencyList[cryptoSymbol].FullName;
+        }
     }
 }

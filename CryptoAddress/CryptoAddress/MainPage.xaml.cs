@@ -17,7 +17,7 @@ namespace CryptoAddress {
     public partial class MainPage : ContentPage {
         // To populate the upper app elements, it should only require UserAddress and fiat currency at first
         UserAddress currentUserAddress;
-        string currentFiat;
+        string currentUserFiat;
 
         // The pickers will require the lists but it goes into the init and accesses the static classes
         
@@ -28,25 +28,48 @@ namespace CryptoAddress {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation
 
-            //Fiat Picker stuff
-            PickerFiatCurrencySelect.ItemsSource = FiatCurrencyList.GetSymbolsList().OrderBy(c => c).ToList();
-
-            //LoadAddressView();
-
+            // The following are sequestered away in a partial class 
+            // that is all about the initial loadup
+            SetFiatPicker();
+            SetUserAddress();                       
         }
 
-        public void LoadAddressView() {
-            // Get the last user address by id
-            int lastId = Preferences.Get("current_db_id", 1);
-            if (lastId != 1) currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
-            else currentUserAddress = UserAddressDatabase.GetUserAddressById(1);
-
-
+        // Populate the header, title, address and barcode of the XAML
+        private void SetAddressDetails() {
+            LabelHeader.Text = currentUserAddress.Name;
+            LabelTitle.Text = currentUserAddress.GetCryptoFullName();
+            LabelAddress.Text = currentUserAddress.Address;
+            BarcodeImageView.BarcodeValue = currentUserAddress.Address;            
+            Preferences.Set("last_used_id", (int)currentUserAddress.Id);
         }
 
+        // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
+        private void PickerFiatCurrencySelect_SelectedIndexChanged(object sender, EventArgs e) {
+            string selectedItem = PickerFiatCurrencySelect.SelectedItem.ToString();
+            Preferences.Set("user_fiat_currency", selectedItem);
+            currentUserFiat = selectedItem;
+        }
     }
 
+    // Loading startup methods go in here
     public partial class MainPage : ContentPage {
-        
+        //Fiat picker stuff
+        public void SetFiatPicker() {          
+            PickerFiatCurrencySelect.ItemsSource = FiatCurrencyList.GetSymbolsList().OrderBy(c => c).ToList();
+            
+            string currentUserFiat = Preferences.Get("user_fiat_currency", null);
+
+            if (!string.IsNullOrEmpty(currentUserFiat)) {
+                int startIndex = PickerFiatCurrencySelect.ItemsSource.IndexOf(currentUserFiat);
+                PickerFiatCurrencySelect.SelectedIndex = startIndex;
+            }
+        }
+
+        //User Address init
+        public void SetUserAddress() {
+            int lastId = Preferences.Get("last_used_id", 1);
+            currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
+            SetAddressDetails();
+        }
     }
 }
