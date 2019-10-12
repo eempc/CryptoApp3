@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CryptoAddress.Models {
     public abstract class Currency : ICurrency {
-        public string SymbolCode { get; set; } // E.g. "ETH"
+        public string SymbolCode { get; set; } // E.g. "ETH" or "USD"
         public string FullName { get; set; } // E.g. "Ethereum"
         public Dictionary<int, string> UnitNames { get; set; } // E.g. Key/Value pair { 18, "wei" } where 18 is the decimal place and wei is the name of said unit
         public char SymbolCharacterMajor { get; set; } // E.g. 'E'

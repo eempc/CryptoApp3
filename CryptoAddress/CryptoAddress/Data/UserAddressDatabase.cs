@@ -7,7 +7,7 @@ using System.IO;
 namespace CryptoAddress.Data {
     class UserAddressDatabase {
         // Get the full path of where the database file will be kept. This will work on both Windows emulator and on the phone
-        private static string fileName = "UserAddresses003.db";
+        private static string fileName = "UserAddresses005.db";
         private static string personalFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         public static string databasePath = Path.Combine(personalFolder, fileName);
 
@@ -18,7 +18,7 @@ namespace CryptoAddress.Data {
                 db.CreateTable<UserAddress>();
 
                 UserAddress seedingAddress = new UserAddress() {
-                    Id = -1,
+                    Id = 1,
                     Name = "My first Bitcoin wallet",
                     Address = "00112233445566778899aabbccddeeff",
                     CryptoSymbol = "BTC",

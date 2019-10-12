@@ -18,6 +18,7 @@ namespace CryptoAddress {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
         UserAddress currentUserAddress;
         FiatCurrency currentFiat;
+        double exchangeRate;
        
         // I will also need to instantiate a PriceFeed to retrieve exchange rates
 
@@ -26,11 +27,11 @@ namespace CryptoAddress {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
 
-            // The following are sequestered away in a partial class 
-            // that is all about the initial loadup
+            // The following are sequestered away in a partial class that is all about the initial loadup
             SetFiatPicker();
             SetUserAddress();
-            SetWalletArea();            
+            SetWalletArea();
+            SetInitialExchangeRate();
         }
 
         // Populate the header, title, address and barcode of the XAML
@@ -71,7 +72,7 @@ namespace CryptoAddress {
 
         //User Address init
         private void SetUserAddress() {
-            int lastId = Preferences.Get("last_used_id", -1);
+            int lastId = Preferences.Get("last_used_id", 1);
             currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
             DisplayAddressDetails();
         }
@@ -80,6 +81,11 @@ namespace CryptoAddress {
         private void SetWalletArea() {
             List<UserAddress> addresses = UserAddressDatabase.ReadAll();
             BindableLayout.SetItemsSource(WalletArea, addresses);
+        }
+
+        // Get the first rate on start up
+        private void SetInitialExchangeRate() {
+
         }
     }
 }
