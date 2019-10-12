@@ -26,7 +26,7 @@ namespace CryptoAddress.Data {
             return client.DownloadString(url.ToString());
         }
 
-        public static double GetSingleExchangeRate(string firstCurrency, string secondCurrency, double amount = 1) {
+        public static Tuple<double, DateTime> GetSingleExchangeRate(string firstCurrency, string secondCurrency, double amount = 1) {
             string fullJson = ApiConverterTool(firstCurrency, secondCurrency);
             if (string.IsNullOrEmpty(fullJson)) {
                 throw new ArgumentNullException();
@@ -34,6 +34,7 @@ namespace CryptoAddress.Data {
             JsonDocumentOptions options = new JsonDocumentOptions { AllowTrailingCommas = true };
 
             string extractedPrice = "";
+            string extractedDate = "";
             using (JsonDocument document = JsonDocument.Parse(fullJson, options)) {
                 extractedPrice = document.RootElement
                     .GetProperty("data")
@@ -41,9 +42,19 @@ namespace CryptoAddress.Data {
                     .GetProperty(secondCurrency)
                     .GetProperty("price")
                     .ToString();
+
+                extractedDate = document.RootElement
+                    .GetProperty("data")
+                    .GetProperty("quote")
+                    .GetProperty(secondCurrency)
+                    .GetProperty("last_updated")
+                    .ToString();
+
             }
 
-            return double.Parse(extractedPrice);
+            Tuple<double, DateTime> result = new Tuple<double, DateTime>(double.Parse(extractedPrice), DateTime.Parse(extractedDate));
+
+            return result;
         }
 
         private static string ApiFullCall() {

@@ -18,7 +18,7 @@ namespace CryptoAddress {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
         UserAddress currentUserAddress;
         FiatCurrency currentFiat;
-        double exchangeRate;
+        Tuple<double, DateTime> exchangeRate;
        
         // I will also need to instantiate a PriceFeed to retrieve exchange rates
 
@@ -86,7 +86,8 @@ namespace CryptoAddress {
         // Get the first rate on start up
         private void SetExchangeRate() {
             exchangeRate = PriceFeed.GetSingleExchangeRate(currentUserAddress.CryptoSymbol, currentFiat.SymbolCode);
-            LabelExchangeRate.Text = currentFiat.SymbolCharacterMajor + " " + exchangeRate.ToString("0.##");
+            LabelExchangeRate.Text = currentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
+            LabelUpdateDateTime.Text = exchangeRate.Item2.ToString("yyyy-MM-dd HH:mm");
         }
     }
 }
