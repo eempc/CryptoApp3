@@ -560,3 +560,17 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Reflection.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Reflection.Extensions.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\btc.png
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Buffers.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Text.Encodings.Web.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Text.Json.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Memory.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\linksrc\System.Threading.Tasks.Extensions.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Buffers.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Memory.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Encodings.Web.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Json.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Threading.Tasks.Extensions.dll

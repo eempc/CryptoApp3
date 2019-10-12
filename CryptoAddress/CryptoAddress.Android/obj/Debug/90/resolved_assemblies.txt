@@ -3,6 +3,7 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\FastAndroidCamera.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\FormsViewGroup.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Java.Interop.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Mono.Android.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\mscorlib.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\SQLite-net.dll
@@ -11,11 +12,15 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\SQLitePCLRaw.core.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Buffers.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Core.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Numerics.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Numerics.Vectors.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Runtime.CompilerServices.Unsafe.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Runtime.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Encodings.Web.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Json.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Xml.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Xml.Linq.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Xamarin.Android.Arch.Core.Common.dll
@@ -87,6 +92,8 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Reflection.Extensions.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Globalization.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\Mono.Security.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Memory.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Threading.Tasks.Extensions.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.ObjectModel.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Encoding.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.IO.dll

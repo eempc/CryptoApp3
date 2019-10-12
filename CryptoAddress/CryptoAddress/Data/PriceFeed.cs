@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
+using System.Text.Json;
 using System.Web;
 
 namespace CryptoAddress.Data {
@@ -26,9 +26,24 @@ namespace CryptoAddress.Data {
             return client.DownloadString(url.ToString());
         }
 
-        public void GetSingleExchangeRate(string firstCurrency, string secondCurrency, double amount = 1) {
+        public static double GetSingleExchangeRate(string firstCurrency, string secondCurrency, double amount = 1) {
             string fullJson = ApiConverterTool(firstCurrency, secondCurrency);
-            
+            if (string.IsNullOrEmpty(fullJson)) {
+                throw new ArgumentNullException();
+            }
+            JsonDocumentOptions options = new JsonDocumentOptions { AllowTrailingCommas = true };
+
+            string extractedPrice = "";
+            using (JsonDocument document = JsonDocument.Parse(fullJson, options)) {
+                extractedPrice = document.RootElement
+                    .GetProperty("data")
+                    .GetProperty("quote")
+                    .GetProperty(secondCurrency)
+                    .GetProperty("price")
+                    .ToString();
+            }
+
+            return double.Parse(extractedPrice);
         }
 
         private static string ApiFullCall() {

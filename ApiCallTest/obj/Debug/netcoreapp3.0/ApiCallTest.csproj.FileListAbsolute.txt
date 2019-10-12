@@ -1,0 +1,11 @@
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.exe
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.deps.json
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.runtimeconfig.json
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.runtimeconfig.dev.json
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\bin\Debug\netcoreapp3.0\ApiCallTest.pdb
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\obj\Debug\netcoreapp3.0\ApiCallTest.csprojAssemblyReference.cache
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\obj\Debug\netcoreapp3.0\ApiCallTest.AssemblyInfoInputs.cache
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\obj\Debug\netcoreapp3.0\ApiCallTest.AssemblyInfo.cs
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\obj\Debug\netcoreapp3.0\ApiCallTest.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\ApiCallTest\obj\Debug\netcoreapp3.0\ApiCallTest.pdb

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAddress.Android", "CryptoAddress\CryptoAddress.Android\CryptoAddress.Android.csproj", "{9060B7C6-D14B-40C9-B246-EE9F2B3564E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAddress", "CryptoAddress\CryptoAddress\CryptoAddress.csproj", "{2A06A225-3B6D-4975-B9C9-BD2F177E790B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoAddress", "CryptoAddress\CryptoAddress\CryptoAddress.csproj", "{2A06A225-3B6D-4975-B9C9-BD2F177E790B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCallTest", "ApiCallTest\ApiCallTest.csproj", "{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A06A225-3B6D-4975-B9C9-BD2F177E790B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

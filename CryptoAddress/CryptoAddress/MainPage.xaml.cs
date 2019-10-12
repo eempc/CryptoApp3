@@ -28,10 +28,10 @@ namespace CryptoAddress {
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
 
             // The following are sequestered away in a partial class that is all about the initial loadup
-            SetFiatPicker();
+            SetFiatPicker();           
             SetUserAddress();
             SetWalletArea();
-            SetInitialExchangeRate();
+            SetExchangeRate();
         }
 
         // Populate the header, title, address and barcode of the XAML
@@ -60,7 +60,7 @@ namespace CryptoAddress {
         private void SetFiatPicker() {          
             PickerFiatCurrencySelect.ItemsSource = FiatCurrencyList.GetSymbolsList().OrderBy(c => c).ToList();
             
-            string currentUserFiat = Preferences.Get("user_fiat_currency", null);
+            string currentUserFiat = Preferences.Get("user_fiat_currency", "USD");
 
             if (!string.IsNullOrEmpty(currentUserFiat)) {
                 int startIndex = PickerFiatCurrencySelect.ItemsSource.IndexOf(currentUserFiat);
@@ -84,8 +84,9 @@ namespace CryptoAddress {
         }
 
         // Get the first rate on start up
-        private void SetInitialExchangeRate() {
-
+        private void SetExchangeRate() {
+            exchangeRate = PriceFeed.GetSingleExchangeRate(currentUserAddress.CryptoSymbol, currentFiat.SymbolCode);
+            LabelExchangeRate.Text = currentFiat.SymbolCharacterMajor + " " + exchangeRate.ToString("0.##");
         }
     }
 }
