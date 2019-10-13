@@ -8,6 +8,6 @@ namespace CryptoAddress.Models {
         char SymbolCharacterMajor { get; set; }
 
         string GetMainUnits();
-        string GetImageFileName(string fileType);
+        string ImageFileUrl { get; }
     }
 }

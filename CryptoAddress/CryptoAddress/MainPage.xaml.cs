@@ -16,7 +16,7 @@ namespace CryptoAddress {
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage, INotifyPropertyChanged {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
-        private UserAddress currentUserAddress { get; set; }
+        private UserAddress currentUserAddress;
         public UserAddress CurrentUserAddress {
             get { 
                 return currentUserAddress; 
@@ -26,7 +26,17 @@ namespace CryptoAddress {
                 OnPropertyChanged(nameof(CurrentUserAddress));
             }
         }
-        FiatCurrency currentFiat;
+
+        private FiatCurrency currentFiat;
+        public FiatCurrency CurrentFiat {
+            get {
+                return currentFiat;
+            }
+            set {
+                currentFiat = value;
+                OnPropertyChanged(nameof(CurrentFiat));
+            }
+        }
         Tuple<double, DateTime> exchangeRate;
 
         //public string testStr { get; set; }
@@ -48,23 +58,23 @@ namespace CryptoAddress {
         }
 
         // Populate the header, title, address and barcode of the XAML
-        private void DisplayAddressDetails() {
-            LabelHeader.Text = currentUserAddress.Name;
-            LabelTitle.Text = currentUserAddress.GetCryptoFullName();
-            LabelAddress.Text = currentUserAddress.Address;
-            BarcodeImageView.BarcodeValue = currentUserAddress.Address;            
-            Preferences.Set("last_used_id", (int)currentUserAddress.Id);
-        }
+        //private void DisplayAddressDetails() {
+        //    LabelHeader.Text = currentUserAddress.Name;
+        //    LabelTitle.Text = currentUserAddress.GetCryptoFullName();
+        //    LabelAddress.Text = currentUserAddress.Address;
+        //    BarcodeImageView.BarcodeValue = currentUserAddress.Address;            
+        //    Preferences.Set("last_used_id", (int)currentUserAddress.Id);
+        //}
 
         // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
         private void PickerFiatCurrencySelect_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedItem = PickerFiatCurrencySelect.SelectedItem.ToString();
             Preferences.Set("user_fiat_currency", selectedItem);
-            currentFiat = FiatCurrencyList.currencyList[selectedItem];
-            DisplayFiatCharacterSymbol();
+            CurrentFiat = FiatCurrencyList.currencyList[selectedItem];
+            //DisplayFiatCharacterSymbol();
         }
 
-        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = currentFiat.SymbolCharacterMajor.ToString();
+        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = CurrentFiat.SymbolCharacterMajor.ToString();
 
         private void ButtonAddAddress_Clicked(object sender, EventArgs e) {
             //testStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -83,15 +93,15 @@ namespace CryptoAddress {
             if (!string.IsNullOrEmpty(currentUserFiat)) {
                 int startIndex = PickerFiatCurrencySelect.ItemsSource.IndexOf(currentUserFiat);
                 PickerFiatCurrencySelect.SelectedIndex = startIndex;
-                DisplayFiatCharacterSymbol();
-                currentFiat = FiatCurrencyList.currencyList[currentUserFiat];
+                //DisplayFiatCharacterSymbol();
+                CurrentFiat = FiatCurrencyList.currencyList[currentUserFiat];
             }
         }
 
         //User Address init
         private void SetUserAddress() {
             int lastId = Preferences.Get("last_used_id", 1);
-            currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
+            CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
             //DisplayAddressDetails();
             
         }
@@ -104,8 +114,8 @@ namespace CryptoAddress {
 
         // Get the first rate on start up
         private void SetExchangeRate() {
-            exchangeRate = PriceFeed.GetSingleExchangeRate(currentUserAddress.CryptoSymbol, currentFiat.SymbolCode);
-            LabelExchangeRate.Text = currentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
+            exchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
+            LabelExchangeRate.Text = CurrentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
             LabelUpdateDateTime.Text = exchangeRate.Item2.ToString("yyyy-MM-dd HH:mm");
         }
     }

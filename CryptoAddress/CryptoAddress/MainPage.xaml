@@ -34,7 +34,7 @@
     
         <!-- The QR Code -->
         <Frame Grid.Row="2" x:Name="FrameQR" Padding="3" BackgroundColor="#F8DA1C" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="#8E0D0D">
-            <zxing:ZXingBarcodeImageView x:Name="BarcodeImageView" BarcodeFormat="QR_CODE" IsVisible="True" BarcodeValue="0xd26114cd6EE289AccF82350c8d8487fedB8A0C07">
+            <zxing:ZXingBarcodeImageView x:Name="BarcodeImageView" BarcodeFormat="QR_CODE" IsVisible="True" BarcodeValue="{Binding CurrentUserAddress.Address}">
                 <zxing:ZXingBarcodeImageView.BarcodeOptions>
                     <zxcm:EncodingOptions Width="600" Height="600" />
                 </zxing:ZXingBarcodeImageView.BarcodeOptions>
@@ -42,7 +42,7 @@
         </Frame>
 
         <!-- The raw address e.g. 0x2328423hejfndsf-->
-        <Label Grid.Row="3" x:Name="LabelAddress" Text="Address" BackgroundColor="Beige" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Label Grid.Row="3" x:Name="LabelAddress" Text="{Binding CurrentUserAddress.Address}" BackgroundColor="Beige" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
         <!-- Enter amount section -->
         <Label Grid.Row="4" Text="Amount" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="$" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="{Binding CurrentFiat.SymbolCharacterMajor}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" Keyboard="Numeric" Placeholder="1000.00" HorizontalTextAlignment="Center"/>
             <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="Center" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged">
                 <Picker.ItemsSource>

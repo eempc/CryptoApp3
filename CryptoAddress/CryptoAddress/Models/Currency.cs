@@ -8,6 +8,9 @@ namespace CryptoAddress.Models {
         public string FullName { get; set; } // E.g. "Ethereum"
         public Dictionary<int, string> UnitNames { get; set; } // E.g. Key/Value pair { 18, "wei" } where 18 is the decimal place and wei is the name of said unit
         public char SymbolCharacterMajor { get; set; } // E.g. 'E'
+        public string ImageFileUrl {
+            get { return SymbolCode.ToLower() + ".png"; }
+        }
 
         public Currency(string symbolCode, string fullName, Dictionary<int, string> unitNames, char symbolCharacterMajor) {
             SymbolCode = symbolCode;
@@ -17,10 +20,6 @@ namespace CryptoAddress.Models {
         }
 
         public Currency() {
-        }
-
-        public string GetImageFileName(string fileType = ".png") {
-            return SymbolCode.ToLower() + fileType;
         }
 
         public string GetMainUnits() {
