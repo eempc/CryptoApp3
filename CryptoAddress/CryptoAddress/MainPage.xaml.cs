@@ -23,7 +23,8 @@ namespace CryptoAddress {
             }
             set {
                 currentUserAddress = value;
-                OnPropertyChanged(nameof(CurrentUserAddress));
+                OnPropertyChanged(nameof(CurrentUserAddress)); // Required for data binding
+                if (CurrentFiat != null) SetExchangeRate();
             }
         }
 
@@ -35,50 +36,43 @@ namespace CryptoAddress {
             set {
                 currentFiat = value;
                 OnPropertyChanged(nameof(CurrentFiat));
+                SetExchangeRate();
             }
         }
-        Tuple<double, DateTime> exchangeRate;
 
-        //public string testStr { get; set; }
-       
-        // I will also need to instantiate a PriceFeed to retrieve exchange rates
+        Tuple<double, DateTime> exchangeRate;     
 
         // Constructor will be used for initialisation stuff
         public MainPage() {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
             
-            // The following are sequestered away in a partial class that is all about the initial loadup
-            SetFiatPicker();           
+            // The following are sequestered away in a partial class that is all about the initial loadup                     
             SetUserAddress();
+            SetFiatPicker();
             SetWalletArea();
-            SetExchangeRate();
 
             BindingContext = this;
         }
-
-        // Populate the header, title, address and barcode of the XAML
-        //private void DisplayAddressDetails() {
-        //    LabelHeader.Text = currentUserAddress.Name;
-        //    LabelTitle.Text = currentUserAddress.GetCryptoFullName();
-        //    LabelAddress.Text = currentUserAddress.Address;
-        //    BarcodeImageView.BarcodeValue = currentUserAddress.Address;            
-        //    Preferences.Set("last_used_id", (int)currentUserAddress.Id);
-        //}
 
         // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
         private void PickerFiatCurrencySelect_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedItem = PickerFiatCurrencySelect.SelectedItem.ToString();
             Preferences.Set("user_fiat_currency", selectedItem);
             CurrentFiat = FiatCurrencyList.currencyList[selectedItem];
-            //DisplayFiatCharacterSymbol();
         }
 
-        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = CurrentFiat.SymbolCharacterMajor.ToString();
-
         private void ButtonAddAddress_Clicked(object sender, EventArgs e) {
-            //testStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //LabelAddress.Text = testStr;
+
+        }
+
+        private void ImageButton_Clicked(object sender, EventArgs e) {
+            string senderId = ((ImageButton)sender).ClassId;
+            if (int.TryParse(senderId, out int number)) {
+                CurrentUserAddress = UserAddressDatabase.GetUserAddressById(number);
+                Preferences.Set("last_used_id", number);
+                //SetExchangeRate(); // This could be a replaced by putting it in the setter with a null check
+            }
         }
     }
 
@@ -93,7 +87,6 @@ namespace CryptoAddress {
             if (!string.IsNullOrEmpty(currentUserFiat)) {
                 int startIndex = PickerFiatCurrencySelect.ItemsSource.IndexOf(currentUserFiat);
                 PickerFiatCurrencySelect.SelectedIndex = startIndex;
-                //DisplayFiatCharacterSymbol();
                 CurrentFiat = FiatCurrencyList.currencyList[currentUserFiat];
             }
         }
@@ -101,9 +94,7 @@ namespace CryptoAddress {
         //User Address init
         private void SetUserAddress() {
             int lastId = Preferences.Get("last_used_id", 1);
-            CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
-            //DisplayAddressDetails();
-            
+            CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);            
         }
 
         // Init wallet area       
@@ -112,7 +103,7 @@ namespace CryptoAddress {
             BindableLayout.SetItemsSource(WalletArea, addresses);
         }
 
-        // Get the first rate on start up
+        // Get the rate, can be encapsulated later by a method to get quotes en masse
         private void SetExchangeRate() {
             exchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
             LabelExchangeRate.Text = CurrentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");

@@ -24,19 +24,8 @@ namespace CryptoAddress.Data {
                     new Dictionary<int, string>() { { 0, "pound" }, { 2, "pence" }, { 4, "pip" } },
                     '£', 'p'
                     ));
-            currencyList.Add("AUD",
-                new FiatCurrency(
-                    "AUD", "Australian dollar",
-                    new Dictionary<int, string>() { { 0, "euro" }, { 2, "cent" }, { 4, "pip" } }, 
-                    '$', '¢'
-                    ));
-            currencyList.Add("CAD",
-                new FiatCurrency(
-                    "CAD", "Canadian dollar",
-                    new Dictionary<int, string>() { { 0, "euro" }, { 2, "cent" }, { 4, "pip" } }, 
-                    '$', '¢'
-                    ));
         }
+
         public static List<string> GetFullNamesList() {
             if (currencyList.Count <= 0) InitiateCurrencies();
             List<string> list = new List<string>();

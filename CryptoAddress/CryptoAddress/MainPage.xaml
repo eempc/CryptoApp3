@@ -112,7 +112,7 @@
                             <ImageButton 
                                 HorizontalOptions="Center" 
                                 VerticalOptions="Center" 
-                                
+                                Clicked="ImageButton_Clicked"
                                 ClassId="{Binding Id}" 
                                 Source="{Binding ImageFileUrl}" 
                                 
