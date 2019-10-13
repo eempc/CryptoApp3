@@ -574,3 +574,4 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Encodings.Web.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Text.Json.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\assets\System.Threading.Tasks.Extensions.dll
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\eth.png

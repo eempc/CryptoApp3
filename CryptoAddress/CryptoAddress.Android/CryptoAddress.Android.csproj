@@ -91,7 +91,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eth.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CryptoAddress\CryptoAddress.csproj">
       <Project>{591DC563-D203-4B2D-B864-47E601476B11}</Project>

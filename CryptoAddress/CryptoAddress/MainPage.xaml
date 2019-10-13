@@ -5,9 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CryptoAddress.MainPage"
-                          xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              >
+
 
     <Grid BackgroundColor="Gray" ColumnSpacing="0" RowSpacing="0">
 		<Grid.RowDefinitions>
@@ -25,7 +26,7 @@
         
         <!-- Header section-->
         
-        <Label Grid.Row="0" x:Name="LabelHeader" Text="Header" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="0" x:Name="LabelHeader" Text="{Binding CurrentUserAddress.Name}" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Image Grid.Row="0" Source="btc.png" HorizontalOptions="Start"/>
         <Image Grid.Row="0" x:Name="TestImage" HorizontalOptions="End"/>
         <!-- Title of address -->
@@ -123,7 +124,7 @@
                 </FlexLayout>
             </ScrollView>
 
-            <Button Grid.Column="2" Text="Add"/>
+            <Button x:Name="ButtonAddAddress" Grid.Column="2" Text="Add" Clicked="ButtonAddAddress_Clicked"/>
         </Grid>
     </Grid>
 

@@ -44,7 +44,7 @@ namespace ApiCallTest {
             url.Query = queryString.ToString();
 
             WebClient client = new WebClient();
-            client.Headers.Add("X-CMC_PRO_API_KEY", "2977f70f-3ac7-4a5e-833c-7ea88278f25c");
+            client.Headers.Add("X-CMC_PRO_API_KEY", "");
             client.Headers.Add("Accepts", "application/json");
 
             return client.DownloadString(url.ToString());

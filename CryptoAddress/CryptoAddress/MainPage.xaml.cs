@@ -14,11 +14,20 @@ namespace CryptoAddress {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage {
+    public partial class MainPage : ContentPage, INotifyPropertyChanged {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
-        UserAddress currentUserAddress;
+        private UserAddress currentUserAddress { get; set; }
+        public UserAddress CurrentUserAddress {
+            get { return currentUserAddress; }
+            set {
+                currentUserAddress = value;
+                OnPropertyChanged(nameof(currentUserAddress));
+            }
+        }
         FiatCurrency currentFiat;
         Tuple<double, DateTime> exchangeRate;
+
+        //public string testStr { get; set; }
        
         // I will also need to instantiate a PriceFeed to retrieve exchange rates
 
@@ -26,12 +35,14 @@ namespace CryptoAddress {
         public MainPage() {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
-
+            BindingContext = this;
             // The following are sequestered away in a partial class that is all about the initial loadup
             SetFiatPicker();           
             SetUserAddress();
             SetWalletArea();
             SetExchangeRate();
+            
+
         }
 
         // Populate the header, title, address and barcode of the XAML
@@ -51,7 +62,12 @@ namespace CryptoAddress {
             DisplayFiatCharacterSymbol();
         }
 
-        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = currentFiat.SymbolCharacterMajor.ToString();       
+        private void DisplayFiatCharacterSymbol() => LabelFiatCurrencyCharacter.Text = currentFiat.SymbolCharacterMajor.ToString();
+
+        private void ButtonAddAddress_Clicked(object sender, EventArgs e) {
+            //testStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //LabelAddress.Text = testStr;
+        }
     }
 
     // Loading startup methods go in here
@@ -74,7 +90,8 @@ namespace CryptoAddress {
         private void SetUserAddress() {
             int lastId = Preferences.Get("last_used_id", 1);
             currentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
-            DisplayAddressDetails();
+            //DisplayAddressDetails();
+            
         }
 
         // Init wallet area       
