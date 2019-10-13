@@ -9,7 +9,6 @@
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              >
 
-
     <Grid BackgroundColor="Gray" ColumnSpacing="0" RowSpacing="0">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="3*"/>
@@ -55,7 +54,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="{Binding CurrentFiat.SymbolCharacterMajor}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" Keyboard="Numeric" Placeholder="1000.00" HorizontalTextAlignment="Center"/>
+            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" TextChanged="EntryFiatCurrencyAmount_TextChanged" Keyboard="Numeric" Placeholder="100.00" HorizontalTextAlignment="Center"/>
             <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="Center" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}"/>
@@ -70,7 +69,7 @@
         <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
             <Label x:Name="LabelCryptocurrencyCharacter" Text="E" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,6,0"/>
             <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Label x:Name="LabelCryptocurrencySymbol" Text="ETH" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="6,0,0,0"/>
+            <Label x:Name="LabelCryptocurrencySymbol" Text="{Binding CurrentUserAddress.CryptoSymbol}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="6,0,0,0"/>
         </FlexLayout>
                
         <!-- Information section -->
@@ -114,11 +113,8 @@
                                 VerticalOptions="Center" 
                                 Clicked="ImageButton_Clicked"
                                 ClassId="{Binding Id}" 
-                                Source="{Binding ImageFileUrl}" 
-                                
+                                Source="{Binding ImageFileUrl}"                                 
                                 />
-
-
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>
