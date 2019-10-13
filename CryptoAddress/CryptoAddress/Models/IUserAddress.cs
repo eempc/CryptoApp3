@@ -5,6 +5,5 @@
         string Name { get; set; }
         string Address { get; set; }
         string CryptoSymbol { get; set; }
-        string ImageFileUrl { get; set; }
     }
 }

@@ -18,10 +18,12 @@ namespace CryptoAddress {
         // Global variables to populate the upper app elements, it should only require UserAddress and fiat currency at first
         private UserAddress currentUserAddress { get; set; }
         public UserAddress CurrentUserAddress {
-            get { return currentUserAddress; }
+            get { 
+                return currentUserAddress; 
+            }
             set {
                 currentUserAddress = value;
-                OnPropertyChanged(nameof(currentUserAddress));
+                OnPropertyChanged(nameof(CurrentUserAddress));
             }
         }
         FiatCurrency currentFiat;
@@ -35,14 +37,14 @@ namespace CryptoAddress {
         public MainPage() {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
-            BindingContext = this;
+            
             // The following are sequestered away in a partial class that is all about the initial loadup
             SetFiatPicker();           
             SetUserAddress();
             SetWalletArea();
             SetExchangeRate();
-            
 
+            BindingContext = this;
         }
 
         // Populate the header, title, address and barcode of the XAML

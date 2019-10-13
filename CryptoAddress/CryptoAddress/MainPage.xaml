@@ -27,7 +27,7 @@
         <!-- Header section-->
         
         <Label Grid.Row="0" x:Name="LabelHeader" Text="{Binding CurrentUserAddress.Name}" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Image Grid.Row="0" Source="btc.png" HorizontalOptions="Start"/>
+        <Image Grid.Row="0" Source="{Binding CurrentUserAddress.ImageFileUrl}" HorizontalOptions="Start"/>
         <Image Grid.Row="0" x:Name="TestImage" HorizontalOptions="End"/>
         <!-- Title of address -->
         <Label Grid.Row="1" x:Name="LabelTitle" Text="Title" BackgroundColor="AliceBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
