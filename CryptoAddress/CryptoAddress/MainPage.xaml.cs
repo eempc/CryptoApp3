@@ -79,8 +79,9 @@ namespace CryptoAddress {
             UpdateCryptoAmountCalculation();
         }
 
-        private void ButtonAddAddress_Clicked(object sender, EventArgs e) {
-            
+        private async void ButtonAddAddress_Clicked(object sender, EventArgs e) {
+            AddPage addPage = new AddPage();
+            await Navigation.PushModalAsync(addPage);
         }
 
         private void ImageButton_Clicked(object sender, EventArgs e) {

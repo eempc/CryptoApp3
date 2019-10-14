@@ -11,3 +11,4 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress\obj\De
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress\obj\Debug\netstandard2.0\ref\CryptoAddress.dll
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress\obj\Debug\netstandard2.0\CryptoAddress.pdb
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress\obj\Debug\netstandard2.0\AddPage.xaml.g.cs
