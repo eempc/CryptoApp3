@@ -57,10 +57,7 @@ namespace CryptoAddress {
         public MainPage() {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
-
-            // The following are sequestered away in a partial class that is all about the initial loadup                     
-
-            
+            //Initial Load up sequence                          
             SetFiatAmount();
             SetUserAddress();
             SetFiatPicker();
@@ -143,6 +140,7 @@ namespace CryptoAddress {
         private void SetTimer() {
             Device.StartTimer(TimeSpan.FromSeconds(30), () => {
                 SetExchangeRate();
+                UpdateCryptoAmountCalculation();
                 return true;
             });
         }
