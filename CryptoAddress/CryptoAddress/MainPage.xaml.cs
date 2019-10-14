@@ -9,6 +9,7 @@ using CryptoAddress.Data;
 using CryptoAddress.Models;
 using System.Linq;
 using Xamarin.Essentials;
+using System.Threading;
 
 namespace CryptoAddress {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -58,16 +59,20 @@ namespace CryptoAddress {
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
 
             // The following are sequestered away in a partial class that is all about the initial loadup                     
+
             
             SetFiatAmount();
             SetUserAddress();
             SetFiatPicker();
             SetExchangeRate();
             SetWalletArea();
-            
+            SetTimer();
             UpdateCryptoAmountCalculation();
             BindingContext = this;
         }
+
+
+
 
         // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
         private void PickerFiatCurrencySelect_SelectedIndexChanged(object sender, EventArgs e) {
@@ -98,6 +103,7 @@ namespace CryptoAddress {
             }
         }
 
+        // This will not be data bound because it is the final calculation so it is quicker to use .Text = ...
         private void UpdateCryptoAmountCalculation() {
             LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
         }
@@ -134,12 +140,15 @@ namespace CryptoAddress {
             addresses = UserAddressDatabase.GetAllUserAddresses();
             BindableLayout.SetItemsSource(WalletArea, addresses);
         }
+        private void SetTimer() {
+            Device.StartTimer(TimeSpan.FromSeconds(30), () => {
+                SetExchangeRate();
+                return true;
+            });
+        }
 
-        // Get the rate, can be encapsulated later by a method to get quotes en masse
         private void SetExchangeRate() {
             ExchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
-            //LabelExchangeRate.Text = CurrentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
-            //LabelUpdateDateTime.Text = exchangeRate.Item2.ToString("yyyy-MM-dd HH:mm");
         }
     }
 }
