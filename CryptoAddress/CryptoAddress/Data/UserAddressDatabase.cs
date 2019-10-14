@@ -21,8 +21,7 @@ namespace CryptoAddress.Data {
                     Id = 1,
                     Name = "My first Bitcoin wallet",
                     Address = "00112233445566778899aabbccddeeff",
-                    CryptoSymbol = "BTC",
-                    
+                    CryptoSymbol = "BTC",                   
                 };
 
                 db.Insert(seedingAddress);
@@ -31,8 +30,7 @@ namespace CryptoAddress.Data {
                     Id = 2,
                     Name = "My first Ethereum wallet",
                     Address = "0x888888888888888",
-                    CryptoSymbol = "ETH",
-                    
+                    CryptoSymbol = "ETH",                   
                 };
 
                 db.Insert(seedingAddress2);
@@ -53,7 +51,7 @@ namespace CryptoAddress.Data {
         }
 
         // Read all into a list
-        public static List<UserAddress> ReadAll() {
+        public static List<UserAddress> GetAllUserAddresses() {
             List<UserAddress> list = new List<UserAddress>();
             SQLiteConnection db = new SQLiteConnection(databasePath);
             TableQuery<UserAddress> table = db.Table<UserAddress>();

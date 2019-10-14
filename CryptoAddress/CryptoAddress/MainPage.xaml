@@ -67,7 +67,6 @@
         <Label Grid.Row="6" Text="Payment of" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
         <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
-            <Label x:Name="LabelCryptocurrencyCharacter" Text="E" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,6,0"/>
             <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             <Label x:Name="LabelCryptocurrencySymbol" Text="{Binding CurrentUserAddress.CryptoSymbol}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="6,0,0,0"/>
         </FlexLayout>
@@ -83,8 +82,8 @@
             
             <FlexLayout Grid.Column="0" BackgroundColor="LightYellow" Direction="Column" JustifyContent="Center" AlignItems="Center">
                 <Label Text="Rate"/>
-                <Label x:Name="LabelExchangeRate" Text="$500.00"/>
-                <Label x:Name="LabelUpdateDateTime" Text="2019-12-12 12:00"/>
+                <Label x:Name="LabelExchangeRate" Text="{ Binding Path=ExchangeRate.Item1, StringFormat='{0:F2}' }"/>
+                <Label x:Name="LabelUpdateDateTime" Text="{Binding ExchangeRate.Item2}"/>
             </FlexLayout>
 
             <BoxView Grid.Column="1" BackgroundColor="#1AA700" CornerRadius="20"/>

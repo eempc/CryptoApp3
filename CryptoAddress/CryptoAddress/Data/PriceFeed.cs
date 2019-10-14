@@ -49,7 +49,6 @@ namespace CryptoAddress.Data {
                     .GetProperty(secondCurrency)
                     .GetProperty("last_updated")
                     .ToString();
-
             }
 
             Tuple<double, DateTime> result = new Tuple<double, DateTime>(double.Parse(extractedPrice), DateTime.Parse(extractedDate));

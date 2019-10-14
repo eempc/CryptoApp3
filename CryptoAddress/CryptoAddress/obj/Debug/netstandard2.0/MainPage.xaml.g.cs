@@ -44,9 +44,6 @@ namespace CryptoAddress {
         private global::Xamarin.Forms.Picker PickerFiatCurrencySelect;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Label LabelCryptocurrencyCharacter;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label LabelCryptocurrencyAmount;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -79,7 +76,6 @@ namespace CryptoAddress {
             LabelFiatCurrencyCharacter = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LabelFiatCurrencyCharacter");
             EntryFiatCurrencyAmount = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "EntryFiatCurrencyAmount");
             PickerFiatCurrencySelect = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "PickerFiatCurrencySelect");
-            LabelCryptocurrencyCharacter = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LabelCryptocurrencyCharacter");
             LabelCryptocurrencyAmount = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LabelCryptocurrencyAmount");
             LabelCryptocurrencySymbol = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LabelCryptocurrencySymbol");
             LabelExchangeRate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LabelExchangeRate");

@@ -39,10 +39,18 @@ namespace CryptoAddress {
                 if (CurrentUserAddress != null) SetExchangeRate();
             }
         }
+        
+        private Tuple<double, DateTime> exchangeRate;
+        public Tuple<double, DateTime> ExchangeRate {
+            get { return exchangeRate; }
+            set {
+                exchangeRate = value;
+                OnPropertyChanged(nameof(ExchangeRate));
+            }
+        }
 
-        double fiatAmount;
-        Tuple<double, DateTime> exchangeRate;
         List<UserAddress> addresses; //For wallet area
+        double fiatAmount;
 
         // Constructor will be used for initialisation stuff
         public MainPage() {
@@ -50,10 +58,13 @@ namespace CryptoAddress {
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
 
             // The following are sequestered away in a partial class that is all about the initial loadup                     
+            
             SetFiatAmount();
             SetUserAddress();
             SetFiatPicker();
+            SetExchangeRate();
             SetWalletArea();
+            
             UpdateCryptoAmountCalculation();
             BindingContext = this;
         }
@@ -88,8 +99,7 @@ namespace CryptoAddress {
         }
 
         private void UpdateCryptoAmountCalculation() {
-            LabelCryptocurrencyAmount.Text = (fiatAmount / exchangeRate.Item1).ToString("0.####");
-
+            LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
         }
     }
 
@@ -121,15 +131,15 @@ namespace CryptoAddress {
 
         // Init wallet area       
         private void SetWalletArea() {
-            addresses = UserAddressDatabase.ReadAll();
+            addresses = UserAddressDatabase.GetAllUserAddresses();
             BindableLayout.SetItemsSource(WalletArea, addresses);
         }
 
         // Get the rate, can be encapsulated later by a method to get quotes en masse
         private void SetExchangeRate() {
-            exchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
-            LabelExchangeRate.Text = CurrentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
-            LabelUpdateDateTime.Text = exchangeRate.Item2.ToString("yyyy-MM-dd HH:mm");
+            ExchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
+            //LabelExchangeRate.Text = CurrentFiat.SymbolCharacterMajor + " " + exchangeRate.Item1.ToString("0.##");
+            //LabelUpdateDateTime.Text = exchangeRate.Item2.ToString("yyyy-MM-dd HH:mm");
         }
     }
 }
