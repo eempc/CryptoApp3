@@ -17,26 +17,15 @@ namespace CryptoAddress {
             PickerCryptocurrency.ItemsSource = CryptocurrencyList.GetSymbolsList();
         }
 
-        private void ButtonOkay_Clicked(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(EntryName.Text)) {
-                EntryName.Placeholder = "*** A name is required ***";
+        private async void ButtonOkay_Clicked(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(EntryName.Text) && !string.IsNullOrEmpty(EntryAddress.Text) && PickerCryptocurrency.SelectedItem != null) {
+                UserAddress newUserAddress = new UserAddress();
+                newUserAddress.Name = EntryName.Text;
+                newUserAddress.Address = EntryAddress.Text;
+                newUserAddress.CryptoSymbol = PickerCryptocurrency.SelectedItem.ToString();
+                UserAddressDatabase.Save(newUserAddress);
+                await Navigation.PopModalAsync();
             }
-
-            if (string.IsNullOrEmpty(EntryAddress.Text)) {
-                EntryAddress.Placeholder = "*** An address is required ***";
-            }
-
-            if (PickerCryptocurrency.SelectedItem == null) {
-                PickerCryptocurrency.Title = "*** Required ***";
-            }
-
-            //UserAddress newUserAddress = new UserAddress();
-            //newUserAddress.Name = EntryName.Text;
-            //newUserAddress.Address = EntryAddress.Text;
-            //newUserAddress.CryptoSymbol = PickerCryptocurrency.SelectedItem.ToString();
-
-
-
         }
 
         private async void ButtonCancel_Clicked(object sender, EventArgs e) {

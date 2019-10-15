@@ -133,6 +133,10 @@ namespace CryptoAddress {
             CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);            
         }
 
+        protected override void OnAppearing() {
+            SetWalletArea();
+        }
+
         // Init wallet area       
         private void SetWalletArea() {
             addresses = UserAddressDatabase.GetAllUserAddresses();
