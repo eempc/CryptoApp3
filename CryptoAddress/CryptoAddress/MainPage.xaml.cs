@@ -50,6 +50,17 @@ namespace CryptoAddress {
             }
         }
 
+        private Cryptocurrency currentCrypto;
+        public Cryptocurrency CurrentCrypto {
+            get { 
+                return currentCrypto; 
+            }
+            set {
+                currentCrypto = value;
+                OnPropertyChanged(nameof(CurrentCrypto));
+            }
+        }
+
         List<UserAddress> addresses; //For wallet area
         double fiatAmount;
 
@@ -67,9 +78,6 @@ namespace CryptoAddress {
             UpdateCryptoAmountCalculation();
             BindingContext = this;
         }
-
-
-
 
         // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
         private void PickerFiatCurrencySelect_SelectedIndexChanged(object sender, EventArgs e) {
@@ -89,6 +97,7 @@ namespace CryptoAddress {
             if (int.TryParse(senderId, out int number)) {
                 CurrentUserAddress = UserAddressDatabase.GetUserAddressById(number);
                 Preferences.Set("last_used_id", number);
+                SetCurrentCrypto();
                 UpdateCryptoAmountCalculation();
             }
         }
@@ -102,9 +111,7 @@ namespace CryptoAddress {
         }
 
         // This will not be data bound because it is the final calculation so it is quicker to use .Text = ...
-        private void UpdateCryptoAmountCalculation() {
-            LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
-        }
+        private void UpdateCryptoAmountCalculation() => LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
     }
 
     // Loading startup methods go in here
@@ -130,12 +137,15 @@ namespace CryptoAddress {
         //User Address init
         private void SetUserAddress() {
             int lastId = Preferences.Get("last_used_id", 1);
-            CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);            
+            CurrentUserAddress = UserAddressDatabase.GetUserAddressById(lastId);
+            SetCurrentCrypto();
         }
 
-        protected override void OnAppearing() {
-            SetWalletArea();
+        private void SetCurrentCrypto() {
+            CurrentCrypto = CryptocurrencyList.GetSingleCryptocurrency(CurrentUserAddress.CryptoSymbol);
         }
+
+        protected override void OnAppearing() => SetWalletArea();
 
         // Init wallet area       
         private void SetWalletArea() {
@@ -150,8 +160,6 @@ namespace CryptoAddress {
             });
         }
 
-        private void SetExchangeRate() {
-            ExchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
-        }
+        private void SetExchangeRate() => ExchangeRate = PriceFeed.GetSingleExchangeRate(CurrentUserAddress.CryptoSymbol, CurrentFiat.SymbolCode);
     }
 }

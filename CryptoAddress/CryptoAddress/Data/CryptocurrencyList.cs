@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CryptoAddress.Data {
     class CryptocurrencyList {
-        public static Dictionary<string, ICurrency> currencyList = new Dictionary<string, ICurrency>();
+        public static Dictionary<string, Cryptocurrency> currencyList = new Dictionary<string, Cryptocurrency>();
 
         public static void InitiateCurrencies() {
             currencyList.Add("ETH",
@@ -47,7 +47,7 @@ namespace CryptoAddress.Data {
             if (currencyList.Count <= 0) InitiateCurrencies();
 
             List<string> list = new List<string>();
-            foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
+            foreach (KeyValuePair<string, Cryptocurrency> entry in currencyList) {
                 list.Add(entry.Value.FullName);
             }
             return list;
@@ -57,7 +57,7 @@ namespace CryptoAddress.Data {
             if (currencyList.Count <= 0) InitiateCurrencies();
 
             List<string> list = new List<string>();
-            foreach (KeyValuePair<string, ICurrency> entry in currencyList) {
+            foreach (KeyValuePair<string, Cryptocurrency> entry in currencyList) {
                 list.Add(entry.Key);
             }
             return list;
@@ -66,6 +66,11 @@ namespace CryptoAddress.Data {
         public static string GetSingleFullName(string cryptoSymbol) {
             if (currencyList.Count <= 0) InitiateCurrencies();
             return currencyList[cryptoSymbol].FullName;
+        }
+
+        public static Cryptocurrency GetSingleCryptocurrency(string symbol) {
+            if (currencyList.Count <= 0) InitiateCurrencies();
+            return currencyList[symbol];
         }
     }
 }

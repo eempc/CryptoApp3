@@ -25,11 +25,11 @@
         
         <!-- Header section-->
         
-        <Label Grid.Row="0" x:Name="LabelHeader" Text="{Binding CurrentUserAddress.Name}" BackgroundColor="#FA5555" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Image Grid.Row="0" Source="{Binding CurrentUserAddress.ImageFileUrl}" HorizontalOptions="Start"/>
-        <Image Grid.Row="0" x:Name="TestImage" HorizontalOptions="End"/>
+        <Label Grid.Row="0" x:Name="LabelHeader" Text="{Binding CurrentUserAddress.Name}" Style="{StaticResource LabelPageHeader}"/>
+        <Image Grid.Row="0" Source="{Binding CurrentUserAddress.ImageFileUrl}" HorizontalOptions="Start" />
+        
         <!-- Title of address -->
-        <Label Grid.Row="1" x:Name="LabelTitle" Text="Title" BackgroundColor="AliceBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Label Grid.Row="1" x:Name="LabelCrypto" Text="{Binding CurrentCrypto.FullName}" Style="{StaticResource LabelSubHeader}"/>
     
         <!-- The QR Code -->
         <Frame Grid.Row="2" x:Name="FrameQR" Padding="3" BackgroundColor="#F8DA1C" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="#8E0D0D">
@@ -41,7 +41,7 @@
         </Frame>
 
         <!-- The raw address e.g. 0x2328423hejfndsf-->
-        <Label Grid.Row="3" x:Name="LabelAddress" Text="{Binding CurrentUserAddress.Address}" BackgroundColor="Beige" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Label Grid.Row="3" x:Name="LabelAddress" Text="{Binding CurrentUserAddress.Address}" Style="{StaticResource LabelNormal}"/>
 
         <!-- Enter amount section -->
         <Label Grid.Row="4" Text="Amount" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
