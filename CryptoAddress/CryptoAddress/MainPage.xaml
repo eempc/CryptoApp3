@@ -44,7 +44,7 @@
         <Label Grid.Row="3" x:Name="LabelAddress" Text="{Binding CurrentUserAddress.Address}" Style="{StaticResource LabelNormal}"/>
 
         <!-- Enter amount section -->
-        <Label Grid.Row="4" Text="Amount" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Label Grid.Row="4" Text="Amount" Style="{StaticResource LabelSmall}" />
 
         <Grid Grid.Row="5" >
             <Grid.ColumnDefinitions>
@@ -63,8 +63,8 @@
         </Grid>
 
         <!-- Calculated amount of crypto at last known exchange rate -->
-        
-        <Label Grid.Row="6" Text="Payment of" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+        <Label Grid.Row="6" Text="Payment of" Style="{StaticResource LabelSmall}" />
 
         <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
             <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
@@ -81,7 +81,7 @@
             <!-- Exchange rate -->
             
             <FlexLayout Grid.Column="0" BackgroundColor="LightYellow" Direction="Column" JustifyContent="Center" AlignItems="Center">
-                <Label Text="Rate"/>
+                <Label Text="Rate" Style="{StaticResource LabelSmall}"/>
                 <Label x:Name="LabelExchangeRate" Text="{ Binding Path=ExchangeRate.Item1, StringFormat='{0:F2}' }"/>
                 <Label x:Name="LabelUpdateDateTime" Text="{Binding ExchangeRate.Item2}"/>
             </FlexLayout>
@@ -100,7 +100,7 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Text="Select" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Grid.Column="0" Text="Select" Style="{StaticResource LabelSmall}"/>
             
             <ScrollView Grid.Column="1" Orientation="Horizontal">
                 <FlexLayout x:Name="WalletArea" Wrap="NoWrap" CompressedLayout.IsHeadless="False" Position="Relative" HorizontalOptions="Center" AlignItems="Center">

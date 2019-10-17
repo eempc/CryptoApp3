@@ -12,6 +12,7 @@
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
+            
         </Style>
 
         <Style x:Key="LabelSubHeader" TargetType="Label">
@@ -32,6 +33,8 @@
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
         </Style>
+        
+        
         
     </Application.Resources>
 </Application>
