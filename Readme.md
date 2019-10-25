@@ -1,0 +1,1 @@
+#App to display QR code
