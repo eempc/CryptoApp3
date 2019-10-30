@@ -9,7 +9,7 @@
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              >
 
-    <Grid BackgroundColor="Gray" ColumnSpacing="0" RowSpacing="0">
+    <Grid BackgroundColor="#484848" ColumnSpacing="0" RowSpacing="0">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
@@ -18,7 +18,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="3*"/>
 		</Grid.RowDefinitions>
@@ -26,7 +26,7 @@
         <!-- Header section-->
         
         <Label Grid.Row="0" x:Name="LabelHeader" Text="{Binding CurrentUserAddress.Name}" Style="{StaticResource LabelPageHeader}"/>
-        <Image Grid.Row="0" Source="{Binding CurrentUserAddress.ImageFileUrl}" HorizontalOptions="Start" />
+        <Image Grid.Row="0" Source="{Binding CurrentUserAddress.ImageFileUrl}" HorizontalOptions="Start" Scale="1.2" Margin="12,0,0,0"  />
         
         <!-- Title of address -->
         <Label Grid.Row="1" x:Name="LabelCrypto" Text="{Binding CurrentCrypto.FullName}" Style="{StaticResource LabelSubHeader}"/>
@@ -44,7 +44,7 @@
         <Label Grid.Row="3" x:Name="LabelAddress" Text="{Binding CurrentUserAddress.Address}" Style="{StaticResource LabelNormal}"/>
 
         <!-- Enter amount section -->
-        <Label Grid.Row="4" Text="Amount" Style="{StaticResource LabelSmall}" />
+        <Label Grid.Row="4" Text="Amount" Style="{StaticResource LabelSmall}" VerticalTextAlignment="End" />
 
         <Grid Grid.Row="5" >
             <Grid.ColumnDefinitions>
@@ -53,22 +53,21 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="{Binding CurrentFiat.SymbolCharacterMajor}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" TextChanged="EntryFiatCurrencyAmount_TextChanged" Keyboard="Numeric" Placeholder="100.00" HorizontalTextAlignment="Center"/>
-            <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="Center" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged">
+            <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="{Binding CurrentFiat.SymbolCharacterMajor}" Style="{StaticResource LabelNormal}" />
+            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" TextChanged="EntryFiatCurrencyAmount_TextChanged" Placeholder="10000.00" Style="{StaticResource EntryAmount}" TextColor="#FFFFFF" PlaceholderColor="#FFFFFF" HorizontalOptions="CenterAndExpand"/>
+            <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="CenterAndExpand" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged" TextColor="#FFFFFF">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}"/>
                 </Picker.ItemsSource>
             </Picker>
         </Grid>
 
-        <!-- Calculated amount of crypto at last known exchange rate -->
-
-        <Label Grid.Row="6" Text="Payment of" Style="{StaticResource LabelSmall}" />
+        <!-- Calculated amount of crypto at last known exchange rate -->        
+        <Label Grid.Row="6" Text="Payment of" Style="{StaticResource LabelSmall}" VerticalTextAlignment="End" />
 
         <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
-            <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Label x:Name="LabelCryptocurrencySymbol" Text="{Binding CurrentUserAddress.CryptoSymbol}" BackgroundColor="Azure" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="6,0,0,0"/>
+            <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" Style="{StaticResource LabelNormal}" />
+            <Label x:Name="LabelCryptocurrencySymbol" Text="{Binding CurrentUserAddress.CryptoSymbol}" Style="{StaticResource LabelNormal}" Margin="12,0,0,0"/>
         </FlexLayout>
                
         <!-- Information section -->
@@ -80,15 +79,15 @@
             
             <!-- Exchange rate -->
             
-            <FlexLayout Grid.Column="0" BackgroundColor="LightYellow" Direction="Column" JustifyContent="Center" AlignItems="Center">
-                <Label Text="Rate" Style="{StaticResource LabelSmall}"/>
-                <Label x:Name="LabelExchangeRate" Text="{ Binding Path=ExchangeRate.Item1, StringFormat='{0:F2}' }"/>
-                <Label x:Name="LabelUpdateDateTime" Text="{Binding ExchangeRate.Item2}"/>
+            <FlexLayout Grid.Column="0" Direction="Column" JustifyContent="Center" AlignItems="Center">
+                <Label Text="Rate" Style="{StaticResource LabelSmall}" />
+                <Label x:Name="LabelExchangeRate" Style="{StaticResource LabelSmall}" Text="{ Binding Path=ExchangeRate.Item1, StringFormat='{0:F2}' }"/>
+                <Label x:Name="LabelUpdateDateTime" Style="{StaticResource LabelSmall}" Text="{Binding ExchangeRate.Item2}"/>
             </FlexLayout>
 
-            <BoxView Grid.Column="1" BackgroundColor="#1AA700" CornerRadius="20"/>
+            <BoxView Grid.Column="1"/>
             <FlexLayout Grid.Column="1" Direction="Column" JustifyContent="Center" AlignItems="Center">
-                <Label Text="View address on"/>
+                <Label Text="View address on" Style="{StaticResource LabelSmall}" VerticalTextAlignment="End"/>
                 <Button x:Name="ButtonExternalLink" Text="www.etherscan.com" />
             </FlexLayout>
         </Grid>
@@ -100,7 +99,7 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Text="Select" Style="{StaticResource LabelSmall}"/>
+            <Label Grid.Column="0" Text="Select" Style="{StaticResource LabelSmall}" VerticalTextAlignment="Center" />
             
             <ScrollView Grid.Column="1" Orientation="Horizontal">
                 <FlexLayout x:Name="WalletArea" Wrap="NoWrap" CompressedLayout.IsHeadless="False" Position="Relative" HorizontalOptions="Center" AlignItems="Center">
@@ -112,7 +111,7 @@
                                 VerticalOptions="Center" 
                                 Clicked="ImageButton_Clicked"
                                 ClassId="{Binding Id}" 
-                                Source="{Binding ImageFileUrl}"                                 
+                                Source="{Binding ImageFileUrl}" Margin="0,0,6,0"                                 
                                 />
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

@@ -6,13 +6,16 @@
              mc:Ignorable="d"
              x:Class="CryptoAddress.App">
     <Application.Resources>
+        <Color x:Key="ColourBackground">Gray</Color>
+        <Color x:Key="ColourText">White</Color>
+        
         
         <Style x:Key="LabelPageHeader" TargetType="Label">
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
-            
+            <Setter Property="TextColor" Value="{StaticResource ColourText}"/>
         </Style>
 
         <Style x:Key="LabelSubHeader" TargetType="Label">
@@ -20,19 +23,31 @@
             <Setter Property="FontAttributes" Value="Italic"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="{StaticResource ColourText}"/>
         </Style>
 
         <Style x:Key="LabelNormal" TargetType="Label">
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="{StaticResource ColourText}"/>
         </Style>
 
         <Style x:Key="LabelSmall" TargetType="Label">
             <Setter Property="FontSize" Value="Small"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            
+            <Setter Property="TextColor" Value="{StaticResource ColourText}"/>
         </Style>
+
+        <Style x:Key="EntryAmount" TargetType="Entry">
+            <Setter Property="FontSize" Value="Large"/>
+            
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="Keyboard" Value="Numeric"/>
+            
+        </Style>
+        
         
         
         
