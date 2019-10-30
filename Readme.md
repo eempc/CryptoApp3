@@ -1,4 +1,4 @@
-# Project Title
+# Xamarin prototype text to QR display with auto calculator
 
 A Xamarin app to display a QR code corresponding to an address
 
