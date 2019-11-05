@@ -54,7 +54,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" x:Name="LabelFiatCurrencyCharacter" Text="{Binding CurrentFiat.SymbolCharacterMajor}" Style="{StaticResource LabelNormal}" />
-            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" TextChanged="EntryFiatCurrencyAmount_TextChanged" Placeholder="10000.00" Style="{StaticResource EntryAmount}" TextColor="#FFFFFF" PlaceholderColor="#FFFFFF" HorizontalOptions="CenterAndExpand"/>
+            <Entry Grid.Column="1" x:Name="EntryFiatCurrencyAmount" TextChanged="EntryFiatCurrencyAmount_TextChanged" Style="{StaticResource EntryAmount}" TextColor="#FFFFFF" PlaceholderColor="#FFFFFF" HorizontalOptions="CenterAndExpand"/>
             <Picker Grid.Column="2" x:Name="PickerFiatCurrencySelect" Title="Select Fiat" HorizontalOptions="CenterAndExpand" SelectedIndexChanged="PickerFiatCurrencySelect_SelectedIndexChanged" TextColor="#FFFFFF">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}"/>
@@ -66,7 +66,8 @@
         <Label Grid.Row="6" Text="Payment of" Style="{StaticResource LabelSmall}" VerticalTextAlignment="End" />
 
         <FlexLayout Grid.Row="7" JustifyContent="Center" AlignItems="Center">
-            <Label x:Name="LabelCryptocurrencyAmount" Text="0.55555" Style="{StaticResource LabelNormal}" />
+
+            <Label x:Name="LabelCryptocurrencyAmount" Style="{StaticResource LabelNormal}"/>
             <Label x:Name="LabelCryptocurrencySymbol" Text="{Binding CurrentUserAddress.CryptoSymbol}" Style="{StaticResource LabelNormal}" Margin="12,0,0,0"/>
         </FlexLayout>
                

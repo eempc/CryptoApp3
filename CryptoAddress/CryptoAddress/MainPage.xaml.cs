@@ -69,14 +69,18 @@ namespace CryptoAddress {
             InitializeComponent();
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
             //Initial Load up sequence                          
-            SetFiatAmount();
+                     
             SetUserAddress();
             SetFiatPicker();
+
+            SetFiatAmount();
             SetExchangeRate();
+
             SetWalletArea();
+            
             SetTimer();
             UpdateCryptoAmountCalculation();
-            BindingContext = this;
+            BindingContext = this; // For all those getters/setters above
         }
 
         // Do you or do you not limit event handlers to a single task? Having seen the previous version, the answer is that it would be less messy this way
@@ -104,21 +108,25 @@ namespace CryptoAddress {
 
         private void EntryFiatCurrencyAmount_TextChanged(object sender, TextChangedEventArgs e) {
             if (double.TryParse(EntryFiatCurrencyAmount.Text, out double amount) && !Double.IsNaN(amount) && amount > 0) {
-                Preferences.Set("last_fiat_amount", amount);
+                Preferences.Set("last_fiat_amount2", amount);
                 fiatAmount = amount;
                 UpdateCryptoAmountCalculation();
             }
         }
 
         // This will not be data bound because it is the final calculation so it is quicker to use .Text = ...
-        private void UpdateCryptoAmountCalculation() => LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
+        private void UpdateCryptoAmountCalculation() {
+            //LabelCryptocurrencyAmount.Text = ExchangeRate.Item1.ToString();
+            LabelCryptocurrencyAmount.Text = (fiatAmount / ExchangeRate.Item1).ToString("0.####");
+        }
     }
 
     // Loading startup methods go in here
     public partial class MainPage : ContentPage {
         // Fiat amount
         private void SetFiatAmount() {
-            fiatAmount = Preferences.Get("last_fiat_amount", 100.00);
+            fiatAmount = Preferences.Get("last_fiat_amount2", 100.01);
+            EntryFiatCurrencyAmount.Text = fiatAmount.ToString();
         }
 
         //Fiat picker stuff
