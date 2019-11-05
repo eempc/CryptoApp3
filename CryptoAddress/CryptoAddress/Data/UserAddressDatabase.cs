@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace CryptoAddress.Data {
     class UserAddressDatabase {
@@ -40,14 +41,14 @@ namespace CryptoAddress.Data {
         }
 
         // Create or update
-        public static async void Save(UserAddress address) {
-            SQLiteAsyncConnection db = new SQLiteAsyncConnection(databasePath);
+        public static void Save(UserAddress address) {
+            SQLiteConnection db = new SQLiteConnection(databasePath);
             if (!address.Id.HasValue || address.Id <= 0) {
-                await db.InsertAsync(address);
+                db.Insert(address);
             } else {
-                await db.UpdateAsync(address);
+                db.Update(address);
             }
-            await db.CloseAsync();
+            db.Close();
         }
 
         // Read all into a list
@@ -59,7 +60,8 @@ namespace CryptoAddress.Data {
             foreach (UserAddress item in table) {
                 list.Add(item);
             }
-            db.Close();
+            
+            db.Close();            
             return list;
         }
 
@@ -73,10 +75,10 @@ namespace CryptoAddress.Data {
         }
 
         // Delete
-        public static async void Delete(int id) {
-            SQLiteAsyncConnection db = new SQLiteAsyncConnection(databasePath);
-            await db.DeleteAsync<UserAddress>(id);
-            await db.CloseAsync();
+        public static void Delete(int id) {
+            SQLiteConnection db = new SQLiteConnection(databasePath);
+            db.Delete<UserAddress>(id);
+            db.Close();
         }
     }
 }

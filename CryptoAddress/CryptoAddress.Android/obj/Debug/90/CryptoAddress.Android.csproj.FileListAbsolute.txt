@@ -582,3 +582,6 @@ D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Androi
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\src\md51558244f76c53b6aeda52c8a337f2c37\SelectableItemsViewRenderer_3.java
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\src\md51558244f76c53b6aeda52c8a337f2c37\StructuredItemsViewAdapter_2.java
 D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\android\src\md51558244f76c53b6aeda52c8a337f2c37\StructuredItemsViewRenderer_3.java
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\ltc.png
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\xmr.png
+D:\Projects\CryptoReceiverTake3\CryptoAddress\CryptoAddress\CryptoAddress.Android\obj\Debug\90\res\drawable\xrp.png
