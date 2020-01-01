@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Web;
+using CryptoAddress.Protected;
 
 namespace CryptoAddress.Data {
     public class PriceFeed {
-        private static string apiKey = "2977f70f-3ac7-4a5e-833c-7ea88278f25c"; // Free keys from coinmarketcap
+        private static string apiKey = Keys.apiKey;
         
         private static string ApiConverterTool(string firstCurrency, string secondCurrency, double amount = 1) {
             string converterUrl = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";

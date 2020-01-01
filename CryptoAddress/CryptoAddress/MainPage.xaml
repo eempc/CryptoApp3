@@ -89,7 +89,7 @@
             <BoxView Grid.Column="1"/>
             <FlexLayout Grid.Column="1" Direction="Column" JustifyContent="Center" AlignItems="Center">
                 <Label Text="View address on" Style="{StaticResource LabelSmall}" VerticalTextAlignment="End"/>
-                <Button x:Name="ButtonExternalLink" Text="www.etherscan.com" />
+                <Button x:Name="ButtonExternalLink" Text="External" />
             </FlexLayout>
         </Grid>
 

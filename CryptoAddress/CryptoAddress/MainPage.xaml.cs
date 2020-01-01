@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using CryptoAddress.Data;
 using CryptoAddress.Models;
-using System.Linq;
 using Xamarin.Essentials;
 using System.Threading;
 
@@ -70,16 +69,16 @@ namespace CryptoAddress {
             UserAddressDatabase.CreateDatabase(); // Initial creation, I don't like this here, should I sequester it away in the database class?
             //Initial Load up sequence                          
                      
-            SetUserAddress();
-            SetFiatPicker();
+            SetUserAddress(); // first
+            SetFiatPicker(); // second
 
-            SetFiatAmount();
-            SetExchangeRate();
+            SetFiatAmount(); // third
+            SetExchangeRate(); // fourth
 
-            SetWalletArea();
+            SetWalletArea(); // fifth
             
-            SetTimer();
-            UpdateCryptoAmountCalculation();
+            SetTimer(); // sixth
+            UpdateCryptoAmountCalculation(); // seventh
             BindingContext = this; // For all those getters/setters above
         }
 
@@ -161,7 +160,7 @@ namespace CryptoAddress {
             BindableLayout.SetItemsSource(WalletArea, addresses);
         }
         private void SetTimer() {
-            Device.StartTimer(TimeSpan.FromSeconds(30), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(300), () => {
                 SetExchangeRate();
                 UpdateCryptoAmountCalculation();
                 return true;
