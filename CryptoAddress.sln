@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAddress.Android", "Cr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoAddress", "CryptoAddress\CryptoAddress\CryptoAddress.csproj", "{2A06A225-3B6D-4975-B9C9-BD2F177E790B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCallTest", "ApiCallTest\ApiCallTest.csproj", "{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCallTest", "ApiCallTest\ApiCallTest.csproj", "{E0EE0FA5-3BC0-48B7-971A-734BD09655EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F00203F-AC62-413A-848C-A24160819F1A}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
