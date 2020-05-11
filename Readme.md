@@ -11,7 +11,7 @@ This is a personal prototype project with no commercial release
 
 As cryptocurrency gains traction, it occurred to me there is a minor problem with telling somebody your cryptocurrency address.
 For example a typical Ethereum address is 42 characters long hexademical.
-While it is possible to send an address by text or email, not everybody may want to do during a face-to-face transaction.
+While it is possible to send an address by text or email, not everybody may want to do so during a face-to-face transaction.
 This app would allow one to display their address for somebody else to scan with a barcode scanner thus avoiding having to say their number or email.
 
 ## Android version
