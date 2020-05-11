@@ -2,6 +2,7 @@
 ## Cryptocurrency address text to QR display with auto calculator
 
 A Xamarin app to display a QR code corresponding to an address
+
 Auto calculates prices
 
 This is a personal prototype project with no commercial release
